@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Dynamic Tech - Solar, Electrical & CCTV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"><img src="img/logo.png" width="150px"></div>
+        <nav id="nav-menu">
+            <a href="#home"><span>Home</span></a>
+            <a href="#services"><span>Services</span></a>
+            <a href="#products"><span>Products</span></a>
+            <a href="#video"><span>About Us</span></a>
+            <a href="#training"><span>Training</span></a>
+            <a href="#gallery"><span>Gallery</span></a>
+            <a href="#testimonials"><span>Testimonials</span></a>
+            <a href="#about"><span>Why Us</span></a>
+            <a href="#contact"><span>Contact</span></a>
+        </nav>
+        <button id="menu-btn"><i class="fa fa-bars"></i></button>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-videos">
+            <video class="hero-video active" autoplay muted loop playsinline>
+                <source src="./img/vid1.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="./img/vid2.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="./img/vid3.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1>Power Your World With <span>Smart Solutions</span></h1>
+            <p>Solar | Electrical | CCTV | Smart Home | Prepaid Meters</p>
+            <button class="cta-btn" id="quoteBtn">Get Free Quote</button>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-grid">
+            <div class="card"><i class="fa-solid fa-solar-panel"></i>
+                <h3>Solar Installation</h3>
+                <p>Full solar systems: Panels, Inverters, Batteries. Zero NEPA bill.</p>
+            </div>
+            <div class="card"><i class="fa-solid fa-bolt"></i>
+                <h3>Electrical Installation & House Wiring</h3>
+                <p>Residential, Commercial, Industrial wiring + smart automation.</p>
+            </div>
+            <div class="card"><i class="fa-solid fa-video"></i>
+                <h3>CCTV Installation</h3>
+                <p>24/7 surveillance. Monitor your home/office from your phone.</p>
+            </div>
+            <div class="card"><i class="fa-solid fa-gauge-high"></i>
+                <h3>Prepaid Meter Installation</h3>
+                <p>Fast installation and upgrade of all meter types.</p>
+            </div>
+            <div class="card"><i class="fa-solid fa-satellite-dish"></i>
+                <h3>DStv & GOtv Installation</h3>
+                <p>Professional mounting, activation, and troubleshooting.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2 class="section-title">Shop Our Products</h2>
+
+        <div class="product-search">
+            <i class="fa fa-search"></i>
+            <input type="text" id="productSearch" placeholder="Search for Solar Panel, Inverter, Battery...">
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <button class="show-more-btn" id="showMoreProductsBtn">Show More Products</button>
+    </section>
+
+    <section id="video" class="company-video">
+        <h2 class="section-title">Get To Know Sunny Dynamic Tech</h2>
+        <div class="video-container">
+            <div class="video-text">
+                <h3>We Light Up Your World</h3>
+                <p>For over 5 years, Sunny Dynamic Tech has been providing top-quality Solar, Electrical, and CCTV
+                    solutions across Nigeria.</p>
+                <ul>
+                    <li><i class="fa fa-check"></i> Certified & Professional Team</li>
+                    <li><i class="fa fa-check"></i> 1 Year Warranty On All Installations</li>
+                    <li><i class="fa fa-check"></i> Nationwide Service Delivery</li>
+                </ul>
+            </div>
+            <div class="video-frame">
+                <img src="img/solar1.jpg" alt="cj">
+            </div>
+        </div>
+    </section>
+
+    <section id="training" class="training-banner">
+        <div class="training-overlay"></div>
+        <div class="training-content">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h2>Learn The Skills. Earn With Us.</h2>
+            <p>We don't just install. We also TEACH! Join our hands-on training program and learn Solar Installation,
+                Electrical Wiring, and CCTV Setup from certified professionals.</p>
+            <div class="training-features">
+                <span><i class="fa fa-certificate"></i> Certificate Awarded</span>
+                <span><i class="fa fa-tools"></i> Practical Training</span>
+                <span><i class="fa fa-briefcase"></i> Job Opportunities</span>
+            </div>
+            <button class="cta-btn"
+                onclick="window.open('https://wa.me/2348038333532?text=Hello, I want to register for your training program', '_blank')">
+                <i class="fa-brands fa-whatsapp"></i> Register For Training
+            </button>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Our Projects</h2>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <button class="show-more-btn" id="showMoreBtn">Show More</button>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-slider">
+            <button class="testimonial-arrow left" id="prevTestimonial"><i class="fa fa-chevron-left"></i></button>
+            <div class="testimonial-wrapper" id="testimonialWrapper"></div>
+            <button class="testimonial-arrow right" id="nextTestimonial"><i class="fa fa-chevron-right"></i></button>
+        </div>
+        <div class="testimonial-dots" id="testimonialDots"></div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <span id="lightboxClose">&times;</span>
+        <img id="lightboxImg" src="" alt="Expanded view">
+    </div>
+
+    <section id="about" class="about">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="about-grid">
+            <div class="about-box"><i class="fa fa-check-circle"></i> 5+ Years Experience</div>
+            <div class="about-box"><i class="fa fa-certificate"></i> Certified Technicians</div>
+            <div class="about-box"><i class="fa fa-shield-halved"></i> 1 Year Warranty</div>
+            <div class="about-box"><i class="fa fa-headset"></i> 24/7 Support</div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+            <textarea id="message" placeholder="I need Solar / Electrical / CCTV..." required></textarea>
+            <button type="submit"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Sunny Dynamic Tech. Light Up Your World.</p>
+    </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn">&times;</span>
+            <h3>Let's Talk Business</h3>
+            <p>Click to chat directly on WhatsApp</p>
+            <a href="https://wa.me/2348038333532" target="_blank" class="whatsapp-btn"><i
+                    class="fa-brands fa-whatsapp"></i> Chat Now</a>
+        </div>
+    </div>
+
+    <div id="productPopup" class="popup">
+        <div class="popup-content">
+            <span id="productCloseBtn">&times;</span>
+            <h3>Ask About Product</h3>
+            <p id="productNameTitle" style="color:var(--gold); font-weight:600; margin-bottom:15px;"></p>
+            <form id="productForm">
+                <input type="text" id="pName" placeholder="Your Name" required>
+                <input type="tel" id="pPhone" placeholder="WhatsApp Number" required>
+                <button type="submit"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
