@@ -27,6 +27,36 @@ document.getElementById("quoteBtn").addEventListener("click", function() {
   });
 });
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8E2NRTYXV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q8E2NRTYXV');
+
+  // Track SDT leads automatically
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Track Get Quote Button
+    document.getElementById("quoteBtn")?.addEventListener("click", () => {
+      gtag('event', 'get_quote_click', {'event_category': 'Contact', 'event_label': 'Hero Button'});
+    });
+    
+    // 2. Track all WhatsApp clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener("click", () => {
+        gtag('event', 'whatsapp_click', {'event_category': 'Contact'});
+      });
+    });
+    
+    // 3. Track all Phone calls
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener("click", () => {
+        gtag('event', 'phone_call_click', {'event_category': 'Contact'});
+      });
+    });
+  });
+</script>
 
 <body>
 
