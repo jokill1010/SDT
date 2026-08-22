@@ -1,4 +1,4 @@
-const whatsappNumber = "234803833532"; // CHANGE THIS TO YOUR NUMBER
+const whatsappNumber = "2347037402240"; // CHANGE THIS TO YOUR NUMBER
 
 // Mobile menu
 const menuBtn = document.getElementById('menu-btn');
