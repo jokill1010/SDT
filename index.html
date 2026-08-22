@@ -19,6 +19,14 @@
 
   gtag('config', 'G-Q8E2NRTYXV');
 </script>
+<script>
+document.getElementById("quoteBtn").addEventListener("click", function() {
+  gtag('event', 'get_quote_click', {
+    'event_category': 'Contact',
+    'event_label': 'Hero Button'
+  });
+});
+</script>
 
 <body>
 
