@@ -2,292 +2,383 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunny Dynamic Tech - Solar, Electrical & CCTV</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B1D3A">
+  <meta name="description"
+    content="Sunny Dynamic Tech provides solar, electrical, CCTV, smart energy and home technology solutions for homes and businesses in Nigeria.">
+  <meta name="keywords"
+    content="solar installation Nigeria, solar Keffi, CCTV installation Nasarawa, electrical wiring, inverter, batteries, Sunny Dynamic Tech">
+  <meta property="og:title" content="Sunny Dynamic Tech | Solar, CCTV & Electrical Solutions">
+  <meta property="og:description"
+    content="Power your home or business with reliable solar, electrical, CCTV and smart technology solutions.">
+  <meta property="og:type" content="website">
+  <title>Sunny Dynamic Tech | Solar, CCTV & Electrical Solutions</title>
+  <link rel="icon" href="img/logo1.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8E2NRTYXV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments) }
+    gtag('js', new Date()); gtag('config', 'G-Q8E2NRTYXV');
+  </script>
 </head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8E2NRTYXV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Q8E2NRTYXV');
-</script>
-<script>
-document.getElementById("quoteBtn").addEventListener("click", function() {
-  gtag('event', 'get_quote_click', {
-    'event_category': 'Contact',
-    'event_label': 'Hero Button'
-  });
-});
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8E2NRTYXV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Q8E2NRTYXV');
-
-  // Track SDT leads automatically
-  document.addEventListener("DOMContentLoaded", function() {
-    // 1. Track Get Quote Button
-    document.getElementById("quoteBtn")?.addEventListener("click", () => {
-      gtag('event', 'get_quote_click', {'event_category': 'Contact', 'event_label': 'Hero Button'});
-    });
-    
-    // 2. Track all WhatsApp clicks
-    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-      link.addEventListener("click", () => {
-        gtag('event', 'whatsapp_click', {'event_category': 'Contact'});
-      });
-    });
-    
-    // 3. Track all Phone calls
-    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-      link.addEventListener("click", () => {
-        gtag('event', 'phone_call_click', {'event_category': 'Contact'});
-      });
-    });
-  });
-</script>
 
 <body>
+  <div class="announcement"><span><i class="fa-solid fa-bolt"></i> Solar • Electrical • CCTV • Smart Energy</span><a
+      href="#quote">Request a free consultation <i class="fa-solid fa-arrow-right"></i></a></div>
 
-    <header class="navbar">
-        <div class="logo"><img src="img/logo.png" width="150px"></div>
-        <nav id="nav-menu">
-            <a href="#home"><span>Home</span></a>
-            <a href="#services"><span>Services</span></a>
-            <a href="#products"><span>Products</span></a>
-            <a href="#video"><span>About Us</span></a>
-            <a href="#training"><span>Training</span></a>
-            <a href="#gallery"><span>Gallery</span></a>
-            <a href="#testimonials"><span>Testimonials</span></a>
-            <a href="#about"><span>Why Us</span></a>
-            <a href="#contact"><span>Contact</span></a>
-        </nav>
-        <button id="menu-btn"><i class="fa fa-bars"></i></button>
-    </header>
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#home" aria-label="Sunny Dynamic Tech home"><img src="img/logo.png"
+        alt="Sunny Dynamic Tech"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i
+        class="fa-solid fa-bars"></i></button>
+    <nav id="navMenu">
+      <a class="active" href="#home">Home</a><a href="#services">Services</a><a href="#products">Products</a><a
+        href="#calculator">Solar Quote</a><a href="#projects">Projects</a><a href="#training">Training</a><a
+        href="#about">About</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="#quote"><i class="fa-solid fa-file-signature"></i> Get Quote</a>
+    </nav>
+  </header>
 
+  <main>
     <section id="home" class="hero">
-        <div class="hero-videos">
-            <video class="hero-video active" autoplay muted loop playsinline>
-                <source src="./img/vid1.mp4" type="video/mp4">
-            </video>
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="./img/vid2.mp4" type="video/mp4">
-            </video>
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="./img/vid3.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-            <h1>Power Your World With <span>Smart Solutions</span></h1>
-            <p>Solar | Electrical | CCTV | Smart Home | Prepaid Meters</p>
-            <button class="cta-btn" id="quoteBtn">Get Free Quote</button>
-        </div>
+      <div class="hero-media">
+        <video class="hero-video active" autoplay muted loop playsinline poster="img/solar1.jpg">
+          <source src="img/vid1.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="img/vid2.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="img/vid3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span></span> Smart technology. Reliable power.</div>
+        <h1>Power your home.<br><em>Protect your business.</em></h1>
+        <p>Professional solar, electrical, CCTV and smart technology solutions designed around how you live and work.
+        </p>
+        <div class="hero-actions"><a class="btn btn-gold" href="#quote">Get a Free Quote <i
+              class="fa-solid fa-arrow-right"></i></a><a class="btn btn-glass"
+            href="https://wa.me/2347037402240?text=Hello%20Sunny%20Dynamic%20Tech%2C%20I%27d%20like%20to%20make%20an%20enquiry."
+            target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a></div>
+        <div class="hero-trust"><span><i class="fa-solid fa-circle-check"></i> Professional team</span><span><i
+              class="fa-solid fa-shield-halved"></i> Installation warranty</span><span><i
+              class="fa-solid fa-headset"></i> Support</span></div>
+      </div>
+      <div class="hero-stats">
+        <div><strong>5+</strong><span>Years experience</span></div>
+        <div><strong>24/7</strong><span>Support</span></div>
+        <div><strong>1 yr</strong><span>Installation warranty</span></div>
+      </div>
     </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="service-grid">
-            <div class="card"><i class="fa-solid fa-solar-panel"></i>
-                <h3>Solar Installation</h3>
-                <p>Full solar systems: Panels, Inverters, Batteries. Zero NEPA bill.</p>
-            </div>
-            <div class="card"><i class="fa-solid fa-bolt"></i>
-                <h3>Electrical Installation & House Wiring</h3>
-                <p>Residential, Commercial, Industrial wiring + smart automation.</p>
-            </div>
-            <div class="card"><i class="fa-solid fa-video"></i>
-                <h3>CCTV Installation</h3>
-                <p>24/7 surveillance. Monitor your home/office from your phone.</p>
-            </div>
-            <div class="card"><i class="fa-solid fa-gauge-high"></i>
-                <h3>Prepaid Meter Installation</h3>
-                <p>Fast installation and upgrade of all meter types.</p>
-            </div>
-            <div class="card"><i class="fa-solid fa-satellite-dish"></i>
-                <h3>DStv & GOtv Installation</h3>
-                <p>Professional mounting, activation, and troubleshooting.</p>
-            </div>
+    <section class="quick-strip">
+      <div><i class="fa-solid fa-solar-panel"></i><span><b>Solar Systems</b><small>Design & installation</small></span>
+      </div>
+      <div><i class="fa-solid fa-video"></i><span><b>CCTV Security</b><small>Monitor from anywhere</small></span></div>
+      <div><i class="fa-solid fa-bolt"></i><span><b>Electrical</b><small>Residential & commercial</small></span></div>
+      <div><i class="fa-solid fa-cart-shopping"></i><span><b>Tech Products</b><small>Ask for availability</small></span>
+      </div>
+    </section>
+
+    <section id="services" class="section services-section">
+      <div class="section-head reveal">
+        <div><span class="kicker">WHAT WE DO</span>
+          <h2>Solutions built for real life.</h2>
         </div>
+        <p>From powering your property to protecting it, we handle the technical work with a practical, professional
+          approach.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card featured reveal">
+          <div class="service-icon"><i class="fa-solid fa-sun"></i></div><span class="service-no">01</span>
+          <h3>Solar & Inverter Systems</h3>
+          <p>System design, solar panels, inverters, batteries and installation for homes and businesses.</p>
+          <div class="service-links"><a href="#calculator">Estimate your system <i
+                class="fa-solid fa-arrow-right"></i></a><a href="#quote">Get a quote <i
+                class="fa-solid fa-arrow-right"></i></a></div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon"><i class="fa-solid fa-video"></i></div><span class="service-no">02</span>
+          <h3>CCTV & Security</h3>
+          <p>Camera installation and remote monitoring solutions for homes, shops, offices and properties.</p>
+          <div class="service-links"><a href="#quote">Book an installation <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div><span class="service-no">03</span>
+          <h3>Electrical & House Wiring</h3>
+          <p>Residential, commercial and industrial wiring, troubleshooting and smart electrical work.</p>
+          <div class="service-links"><a href="#quote">Request assessment <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div><span class="service-no">04</span>
+          <h3>Prepaid Meter Services</h3>
+          <p>Meter installation, upgrades and related support to help you manage your electricity use.</p>
+          <div class="service-links"><a href="#quote">Make an enquiry <i class="fa-solid fa-arrow-right"></i></a></div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon"><i class="fa-solid fa-house-signal"></i></div><span class="service-no">05</span>
+          <h3>Smart Home & Energy</h3>
+          <p>Practical automation and energy solutions that make your home more convenient and efficient.</p>
+          <div class="service-links"><a href="#quote">Talk to an expert <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon"><i class="fa-solid fa-satellite-dish"></i></div><span class="service-no">06</span>
+          <h3>DStv & GOtv</h3>
+          <p>Professional mounting, activation, signal troubleshooting and related home entertainment services.</p>
+          <div class="service-links"><a href="#quote">Book service <i class="fa-solid fa-arrow-right"></i></a></div>
+        </article>
+      </div>
     </section>
 
-    <section id="products" class="products">
-        <h2 class="section-title">Shop Our Products</h2>
-
-        <div class="product-search">
-            <i class="fa fa-search"></i>
-            <input type="text" id="productSearch" placeholder="Search for Solar Panel, Inverter, Battery...">
+    <section id="calculator" class="section calculator-section">
+      <div class="calculator-copy reveal"><span class="kicker">FREE ESTIMATE</span>
+        <h2>How much solar power do you need?</h2>
+        <p>Tell us the appliances you want to run. Get a quick planning estimate, then request an exact quotation from
+          our team.</p>
+        <div class="calc-note"><i class="fa-solid fa-circle-info"></i><span>This is a planning estimate. Final system
+            sizing depends on your actual load, usage pattern, site conditions and professional assessment.</span></div>
+      </div>
+      <div class="calculator reveal">
+        <div class="calc-top">
+          <h3>Solar Load Estimator</h3><span id="calcStatus">0 appliances</span>
         </div>
-
-        <div class="product-grid" id="productGrid"></div>
-
-        <button class="show-more-btn" id="showMoreProductsBtn">Show More Products</button>
+        <div class="appliance-grid" id="applianceGrid"></div>
+        <div class="calc-result">
+          <div><small>Estimated load</small><strong id="loadResult">0 W</strong></div>
+          <div><small>Suggested inverter</small><strong id="inverterResult">—</strong></div>
+          <div><small>Suggested battery</small><strong id="batteryResult">—</strong></div>
+          <div><small>Suggested panels*</small><strong id="panelResult">—</strong></div>
+        </div><button class="btn btn-gold full" id="calcQuoteBtn">Use this estimate for my quote <i
+            class="fa-solid fa-arrow-right"></i></button>
+      </div>
     </section>
 
-    <section id="video" class="company-video">
-        <h2 class="section-title">Get To Know Sunny Dynamic Tech</h2>
-        <div class="video-container">
-            <div class="video-text">
-                <h3>We Light Up Your World</h3>
-                <p>For over 5 years, Sunny Dynamic Tech has been providing top-quality Solar, Electrical, and CCTV
-                    solutions across Nigeria.</p>
-                <ul>
-                    <li><i class="fa fa-check"></i> Certified & Professional Team</li>
-                    <li><i class="fa fa-check"></i> 1 Year Warranty On All Installations</li>
-                    <li><i class="fa fa-check"></i> Nationwide Service Delivery</li>
-                </ul>
-            </div>
-            <div class="video-frame">
-                <img src="img/solar1.jpg" alt="cj">
-            </div>
+    <section id="products" class="section products-section">
+      <div class="section-head reveal">
+        <div><span class="kicker">SHOP & ASK</span>
+          <h2>Popular products.</h2>
         </div>
+        <p>Availability and prices can change. Use the enquiry button to confirm current stock, specifications and
+          price.</p>
+      </div>
+      <div class="catalog-tools reveal">
+        <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="productSearch" type="search"
+            placeholder="Search panels, batteries, inverters, CCTV..."></div>
+        <div class="filters" id="productFilters"><button class="filter active" data-filter="all">All</button><button
+            class="filter" data-filter="solar">Solar</button><button class="filter"
+            data-filter="battery">Batteries</button><button class="filter"
+            data-filter="inverter">Inverters</button><button class="filter" data-filter="cctv">CCTV</button><button
+            class="filter" data-filter="accessories">Accessories</button></div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state" id="emptyProducts" hidden>No products match that search. <a href="#quote">Ask us for what
+          you need.</a></div><button class="outline-btn" id="showMoreProductsBtn">Show more products <i
+          class="fa-solid fa-chevron-down"></i></button>
     </section>
 
-    <section id="training" class="training-banner">
-        <div class="training-overlay"></div>
-        <div class="training-content">
-            <i class="fa-solid fa-chalkboard-user"></i>
-            <h2>Learn The Skills. Earn With Us.</h2>
-            <p>We don't just install. We also TEACH! Join our hands-on training program and learn Solar Installation,
-                Electrical Wiring, and CCTV Setup from certified professionals.</p>
-            <div class="training-features">
-                <span><i class="fa fa-certificate"></i> Certificate Awarded</span>
-                <span><i class="fa fa-tools"></i> Practical Training</span>
-                <span><i class="fa fa-briefcase"></i> Job Opportunities</span>
-            </div>
-            <button class="cta-btn"
-                onclick="window.open('https://wa.me/2347037402240?text=Hello, I want to register for your training program', '_blank')">
-                <i class="fa-brands fa-whatsapp"></i> Register For Training
-            </button>
+    <section class="section process-section">
+      <div class="section-head centered reveal"><span class="kicker">HOW IT WORKS</span>
+        <h2>From enquiry to installation.</h2>
+        <p>A simple process designed to get you from “I need this” to “It works” without unnecessary stress.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-card reveal"><span>01</span><i class="fa-solid fa-comments"></i>
+          <h3>Tell us what you need</h3>
+          <p>WhatsApp, call or use the quote form to explain your project.</p>
         </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Our Projects</h2>
-        <div class="gallery-grid" id="galleryGrid"></div>
-        <button class="show-more-btn" id="showMoreBtn">Show More</button>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <div class="testimonial-slider">
-            <button class="testimonial-arrow left" id="prevTestimonial"><i class="fa fa-chevron-left"></i></button>
-            <div class="testimonial-wrapper" id="testimonialWrapper"></div>
-            <button class="testimonial-arrow right" id="nextTestimonial"><i class="fa fa-chevron-right"></i></button>
+        <div class="process-card reveal"><span>02</span><i class="fa-solid fa-clipboard-check"></i>
+          <h3>Assessment & quotation</h3>
+          <p>We review your requirements and recommend a suitable solution.</p>
         </div>
-        <div class="testimonial-dots" id="testimonialDots"></div>
-    </section>
-
-    <div id="lightbox" class="lightbox">
-        <span id="lightboxClose">&times;</span>
-        <img id="lightboxImg" src="" alt="Expanded view">
-    </div>
-
-    <section id="about" class="about">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="about-grid">
-            <div class="about-box"><i class="fa fa-check-circle"></i> 5+ Years Experience</div>
-            <div class="about-box"><i class="fa fa-certificate"></i> Certified Technicians</div>
-            <div class="about-box"><i class="fa fa-shield-halved"></i> 1 Year Warranty</div>
-            <div class="about-box"><i class="fa fa-headset"></i> 24/7 Support</div>
+        <div class="process-card reveal"><span>03</span><i class="fa-solid fa-screwdriver-wrench"></i>
+          <h3>Professional installation</h3>
+          <p>Our team installs and tests the system with attention to safety and finish.</p>
         </div>
+        <div class="process-card reveal"><span>04</span><i class="fa-solid fa-headset"></i>
+          <h3>Support after setup</h3>
+          <p>Need help later? Contact the team for support and maintenance enquiries.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="tel" id="phone" placeholder="WhatsApp Number" required>
-            <textarea id="message" placeholder="I need Solar / Electrical / CCTV..." required></textarea>
-            <button type="submit"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
+    <section id="projects" class="section projects-section">
+      <div class="section-head reveal">
+        <div><span class="kicker">OUR WORK</span>
+          <h2>Projects & field work.</h2>
+        </div>
+        <p>Explore installation photos and videos from the existing Sunny Dynamic Tech gallery.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div><button class="outline-btn" id="showMoreBtn">Show more projects
+        <i class="fa-solid fa-chevron-down"></i></button>
+    </section>
+
+    <section id="training" class="training-section">
+      <div class="training-image"><img src="img/solar1.jpg" alt="Solar installation training and field work"
+          loading="lazy"></div>
+      <div class="training-content reveal"><span class="kicker">SDT TRAINING</span>
+        <h2>Learn the skills. Build your future.</h2>
+        <p>Sunny Dynamic Tech also provides practical training in solar installation, electrical wiring and CCTV setup.
+        </p>
+        <div class="training-points"><span><i class="fa-solid fa-certificate"></i> Certificate</span><span><i
+              class="fa-solid fa-screwdriver-wrench"></i> Practical sessions</span><span><i
+              class="fa-solid fa-briefcase"></i> Career-focused skills</span></div><a class="btn btn-gold"
+          href="https://wa.me/2347037402240?text=Hello%20Sunny%20Dynamic%20Tech%2C%20I%27m%20interested%20in%20your%20training%20program."
+          target="_blank" rel="noopener">Register on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-copy reveal"><span class="kicker">WHY SUNNY DYNAMIC TECH</span>
+        <h2>Technical work, explained clearly.</h2>
+        <p>We combine practical technical skills with customer-focused service across solar, electrical, security and
+          energy technology.</p><a href="#quote" class="text-link">Start your project <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="about-grid">
+        <div class="about-box reveal"><i class="fa-solid fa-calendar-check"></i><strong>5+</strong><span>Years
+            experience</span></div>
+        <div class="about-box reveal"><i
+            class="fa-solid fa-user-shield"></i><strong>Certified</strong><span>Technicians</span></div>
+        <div class="about-box reveal"><i class="fa-solid fa-shield-halved"></i><strong>1 Year</strong><span>Installation
+            warranty</span></div>
+        <div class="about-box reveal"><i class="fa-solid fa-headset"></i><strong>24/7</strong><span>Support</span></div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-head centered reveal"><span class="kicker">FAQ</span>
+        <h2>Questions before you start?</h2>
+      </div>
+      <div class="faq-list">
+        <details class="reveal">
+          <summary>Can you size a solar system for my home? <i class="fa-solid fa-plus"></i></summary>
+          <p>Yes. Use the estimator on this page for a starting point, then send your appliance list and usage details
+            for a professional assessment and quotation.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do you install CCTV that I can view on my phone? <i class="fa-solid fa-plus"></i></summary>
+          <p>We offer CCTV installation and remote-monitoring solutions. The exact setup depends on the camera,
+            recorder, network and site requirements.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can I buy products without installation? <i class="fa-solid fa-plus"></i></summary>
+          <p>Yes, where the product is available for sale separately. Contact us to confirm current stock,
+            specifications, price and delivery/pick-up arrangements.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do you serve customers outside Keffi? <i class="fa-solid fa-plus"></i></summary>
+          <p>Service availability depends on the project and location. Send your location and requirements and the team
+            can confirm arrangements.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="quote" class="quote-section">
+      <div class="quote-card reveal">
+        <div class="quote-copy"><span class="kicker">START YOUR PROJECT</span>
+          <h2>Tell us what you want to build.</h2>
+          <p>Give us the basics. We'll help you turn your idea into a practical next step.</p>
+          <div class="quote-contact"><a href="tel:+2347037402240"><i
+                class="fa-solid fa-phone"></i><span><small>Call</small>+234 703 740 2240</span></a><a
+              href="mailto:sunnydynamic100@gmail.com"><i
+                class="fa-solid fa-envelope"></i><span><small>Email</small>sunnydynamic100@gmail.com</span></a></div>
+        </div>
+        <form id="quoteForm" class="quote-form">
+          <div class="form-row"><label>Name<input id="qName" required placeholder="Your name"></label><label>WhatsApp /
+              Phone<input id="qPhone" required type="tel" placeholder="080..."></label></div>
+          <div class="form-row"><label>Location<input id="qLocation" required
+                placeholder="Keffi, Abuja, etc."></label><label>Service<select id="qService" required>
+                <option value="">Choose a service</option>
+                <option>Solar / Inverter</option>
+                <option>CCTV / Security</option>
+                <option>Electrical / House Wiring</option>
+                <option>Prepaid Meter</option>
+                <option>Smart Home</option>
+                <option>DStv / GOtv</option>
+                <option>Product purchase</option>
+                <option>Training</option>
+                <option>Other</option>
+              </select></label></div><label>Tell us about the project<textarea id="qMessage" rows="4" required
+              placeholder="What do you want installed, repaired or purchased?"></textarea></label><label
+            class="check"><input type="checkbox" id="qEmailCopy"> I also want an email-ready copy of this
+            enquiry.</label><button class="btn btn-gold full" type="submit"><i class="fa-brands fa-whatsapp"></i> Send
+            enquiry on WhatsApp</button>
+          <p class="form-note"></p>
         </form>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <a href="#home"><img src="img/logo.png" alt="SDT logo" class="footer-logo"></a>
-                <p>We provide smart solar solutions, tech services, and training to power homes and businesses across Nigeria.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home"><i class="fa-solid fa-angle-right"></i>Home</a></li>
-                    <li><a href="#services"><i class="fa-solid fa-angle-right"></i>Services</a></li>
-                    <li><a href="#products"><i class="fa-solid fa-angle-right"></i>Products</a></li>
-                    <li><a href="#video"><i class="fa-solid fa-angle-right"></i>About Us</a></li>
-                    <li><a href="#training"><i class="fa-solid fa-angle-right"></i>Training</a></li>
-                    <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i>Gallery</a></li>
-                    <li><a href="#testimonials"><i class="fa-solid fa-angle-right"></i>Testimonials</a></li>
-                    <li><a href="#about"><i class="fa-solid fa-angle-right"></i>Why Us</a></li>
-                    <li><a href="#contact"><i class="fa-solid fa-angle-right"></i>Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Our Services</h3>
-                <ul>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i>Solar Installation</a></li>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i>Electrical Installation & House Wiring</a></li>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i>CCTV Installation</a></li>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i>Prepaid Meter Installation</a></li>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i>DStv & GOtv Installation</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p><i class="fa-solid fa-location-dot"></i>Keffi, Nasarawa State, Nigeria</p>
-                <p><i class="fa-solid fa-phone"></i><a class="color" href="tel:+2347037402240">+234 703 740 2240</a></p>
-                <p><i class="fa-solid fa-envelope"></i><a href="mailto:sunnydynamic100@gmail.com" class="color">sunnydynamic100@gmail.com</a></p>
-                <div class="socials">
-                    <a href="https://www.facebook.com/profile.php?id=100083453134633"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://wa.me/2347037402240"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Sunny Dynamic Tech. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <section id="contact" class="contact-section">
+      <div><span class="kicker">CONTACT</span>
+        <h2>Let's get your project moving.</h2>
+        <p>Based in Keffi, Nasarawa State. Contact Sunny Dynamic Tech for service availability and project enquiries.
+        </p>
+      </div>
+      <div class="contact-actions"><a href="https://wa.me/2347037402240" target="_blank" rel="noopener"
+          class="contact-action whatsapp"><i class="fa-brands fa-whatsapp"></i><span><small>WhatsApp</small>Chat with
+            us</span></a><a href="tel:+2347037402240" class="contact-action"><i
+            class="fa-solid fa-phone"></i><span><small>Phone</small>Call +234 703 740 2240</span></a><a
+          href="mailto:sunnydynamic100@gmail.com" class="contact-action"><i
+            class="fa-solid fa-envelope"></i><span><small>Email</small>sunnydynamic100@gmail.com</span></a></div>
+    </section>
+  </main>
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span id="closeBtn">&times;</span>
-            <h3>Let's Talk Business</h3>
-            <p>Click to chat directly on WhatsApp</p>
-            <a href="https://wa.me/2347037402240" target="_blank" class="whatsapp-btn"><i
-                    class="fa-brands fa-whatsapp"></i> Chat Now</a>
-        </div>
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand"><img src="img/logo.png" alt="Sunny Dynamic Tech">
+        <p>Smart solar, electrical, CCTV and technology solutions for homes and businesses.</p>
+        <div class="socials"><a href="https://www.facebook.com/profile.php?id=100083453134633" target="_blank"
+            rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a
+            href="https://wa.me/2347037402240" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+              class="fa-brands fa-whatsapp"></i></a><a href="#" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a></div>
+      </div>
+      <div>
+        <h3>Explore</h3><a href="#services">Services</a><a href="#products">Products</a><a
+          href="#projects">Projects</a><a href="#training">Training</a>
+      </div>
+      <div>
+        <h3>Services</h3><a href="#quote">Solar & Inverter</a><a href="#quote">CCTV Security</a><a
+          href="#quote">Electrical</a><a href="#quote">Smart Home</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Keffi, Nasarawa State, Nigeria</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+2347037402240">+234 703 740 2240</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:sunnydynamic100@gmail.com">sunnydynamic100@gmail.com</a>
+        </p>
+      </div>
     </div>
+    <div class="footer-bottom"><span>© 2026 Sunny Dynamic Tech. All rights reserved.</span><span>Built for better
+        enquiries, not just better looks.</span></div>
+  </footer>
 
-    <div id="productPopup" class="popup">
-        <div class="popup-content">
-            <span id="productCloseBtn">&times;</span>
-            <h3>Ask About Product</h3>
-            <p id="productNameTitle" style="color:var(--gold); font-weight:600; margin-bottom:15px;"></p>
-            <form id="productForm">
-                <input type="text" id="pName" placeholder="Your Name" required>
-                <input type="tel" id="pPhone" placeholder="WhatsApp Number" required>
-                <button type="submit"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
-            </form>
-        </div>
-    </div>
-    <a href="https://wa.me/2347037402240" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+  <div class="modal" id="mediaModal" aria-hidden="true"><button class="modal-close" id="modalClose"
+      aria-label="Close"><i class="fa-solid fa-xmark"></i></button><button class="modal-arrow left" id="prevMedia"
+      aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <div id="modalContent"></div><button class="modal-arrow right" id="nextMedia" aria-label="Next"><i
+        class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <a class="floating-whatsapp"
+    href="https://wa.me/2347037402240?text=Hello%20Sunny%20Dynamic%20Tech%2C%20I%27d%20like%20to%20make%20an%20enquiry."
+    target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>Chat with
+      us</span></a>
+  <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
