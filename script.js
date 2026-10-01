@@ -80,10 +80,26 @@ const media = [
     { type: 'image', src: 'gallery/img9.jpg', thumb: 'gallery/img9.jpg', label: 'Installation' },
     { type: 'image', src: 'gallery/img10.jpg', thumb: 'gallery/img10.jpg', label: 'Installation' },
     { type: 'image', src: 'gallery/img11.jpg', thumb: 'gallery/img11.jpg', label: 'Installation' },
-    { type: 'image', src: 'gallery/img12.jpg', thumb: 'gallery/img12.jpg', label: 'Installation' }];
+    { type: 'image', src: 'gallery/img12.jpg', thumb: 'gallery/img12.jpg', label: 'Installation' },
+    { type: 'image', src: 'gallery/img13.webp', thumb: 'gallery/img13.webp', label: 'Installation' },
+    { type: 'video', src: 'gallery/video5.mp4', thumb: 'gallery/img13.webp', label: 'Project video' },
+    { type: 'image', src: 'gallery/img14.webp', thumb: 'gallery/img14.webp', label: 'Installation' },
+    { type: 'video', src: 'gallery/video3.mp4', thumb: 'gallery/img14.webp', label: 'Project video' },
+    { type: 'image', src: 'gallery/img15.webp', thumb: 'gallery/img15.webp', label: 'Installation' },
+    { type: 'image', src: 'gallery/img16.webp', thumb: 'gallery/img16.webp', label: 'Installation' },
+    { type: 'image', src: 'gallery/img17.webp', thumb: 'gallery/img17.webp', label: 'Installation' },
+    { type: 'video', src: 'gallery/video8.mp4', thumb: 'gallery/img17.webp', label: 'Project video' },
+    { type: 'image', src: 'gallery/img18.webp', thumb: 'gallery/img18.webp', label: 'Installation' },
+    { type: 'video', src: 'gallery/video6.mp4', thumb: 'gallery/img18.webp', label: 'Project video' },
+    { type: 'image', src: 'gallery/img19.webp', thumb: 'gallery/img19.webp', label: 'Installation' },
+    { type: 'video', src: 'gallery/video7.mp4', thumb: 'gallery/img19.webp', label: 'Project video' },
+    { type: 'image', src: 'gallery/img20.webp', thumb: 'gallery/img20.webp', label: 'Installation' },
+    { type: 'image', src: 'gallery/img21.webp', thumb: 'gallery/img21.webp', label: 'Installation' },
+    { type: 'image', src: 'gallery/img22.webp', thumb: 'gallery/img22.webp', label: 'Field Work' },
+    { type: 'video', src: 'gallery/video4.mp4', thumb: 'gallery/img22.webp', label: 'Project video' },];
 let mediaLimit = 8, currentMedia = 0; const gallery = document.getElementById('galleryGrid'), showMore = document.getElementById('showMoreBtn'), modal = document.getElementById('mediaModal'), modalContent = document.getElementById('modalContent');
 function renderGallery() { gallery.innerHTML = media.slice(0, mediaLimit).map((m, i) => `<div class="gallery-item" data-i="${i}"><img src="${m.thumb}" alt="${m.label}" loading="lazy">${m.type === 'video' ? '<span class="play"><i class="fa-solid fa-play"></i></span>' : ''}<span class="gallery-overlay">${m.label} <i class="fa-solid fa-expand"></i></span></div>`).join(''); showMore.style.display = mediaLimit < media.length ? 'block' : 'none'; gallery.querySelectorAll('.gallery-item').forEach(el => el.onclick = () => openMedia(Number(el.dataset.i))) }
-function openMedia(i) { currentMedia = i; const m = media[i]; modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); modalContent.innerHTML = m.type === 'image' ? `<img src="${m.src}" alt="${m.label}">` : `<video src="${m.src}" controls autoplay playsinline></video>` } function closeMedia() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); modalContent.innerHTML = '' }
+function openMedia(i) { currentMedia = i; const m = media[i]; modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); modalContent.innerHTML = m.type === 'image' ? `<img src="${m.src}" alt="${m.label}">` : `<video src="${m.src}" controls controlslist="nodownload noremoteplayback" disablepictureinpicture autoplay muted loop playsinline></video>` } function closeMedia() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); modalContent.innerHTML = '' }
 document.getElementById('modalClose').onclick = closeMedia; document.getElementById('prevMedia').onclick = () => openMedia((currentMedia - 1 + media.length) % media.length); document.getElementById('nextMedia').onclick = () => openMedia((currentMedia + 1) % media.length); modal.onclick = e => { if (e.target === modal) closeMedia() }; document.addEventListener('keydown', e => { if (!modal.classList.contains('open')) return; if (e.key === 'Escape') closeMedia(); if (e.key === 'ArrowLeft') openMedia((currentMedia - 1 + media.length) % media.length); if (e.key === 'ArrowRight') openMedia((currentMedia + 1) % media.length) }); showMore.onclick = () => { mediaLimit += 6; renderGallery() }; renderGallery();
 
 // Quote form -> WhatsApp + optional email draft

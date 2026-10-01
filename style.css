@@ -12,7 +12,7 @@
     --shadow: 0 20px 55px rgba(11, 29, 58, .10)
 }
 
-* {
+* { 
     box-sizing: border-box;
     margin: 0;
     padding: 0
@@ -1711,3 +1711,7 @@ img {
         right: 8px
     }
 }
+/* Videos are silent: hide volume/mute controls */
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-volume-slider-container{display:none!important}
