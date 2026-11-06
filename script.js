@@ -1,4 +1,6 @@
 const WA = '2347037402240';
+// Paste your Google review link between the quotes. The Google review section stays hidden until you do.
+const GOOGLE_REVIEW_URL = '';
 const waOpen = (text = 'Hello Sunny Dynamic Tech, I would like to make an enquiry.') => window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
 
 // Mobile navigation + active section
@@ -58,10 +60,11 @@ search.addEventListener('input', () => { productLimit = 8; renderProducts() }); 
 
 // Solar estimator
 const appliances = [['fridge', 'Refrigerator', 180, 'fa-snowflake'], ['tv', 'TV', 100, 'fa-tv'], ['fan', 'Fan', 75, 'fa-fan'], ['lights', 'Lights', 40, 'fa-lightbulb'], ['decoder', 'Decoder', 25, 'fa-satellite-dish'], ['laptop', 'Laptop', 65, 'fa-laptop'], ['router', 'Wi-Fi Router', 15, 'fa-wifi'], ['iron', 'Pressing Iron', 1000, 'fa-shirt'], ['kettle', 'Electric Kettle', 1500, 'fa-mug-hot'], ['pump', 'Water Pump', 750, 'fa-faucet'], ['washing', 'Washing Machine', 500, 'fa-soap'], ['ac', 'Air Conditioner', 1200, 'fa-snowflake']];
-const applianceGrid = document.getElementById('applianceGrid'); let loads = {};
-applianceGrid.innerHTML = appliances.map(a => `<label class="appliance" data-id="${a[0]}"><div class="appliance-top"><i class="fa-solid ${a[3]}"></i><input type="number" min="1" max="10" value="1" aria-label="Quantity of ${a[1]}"></div><b>${a[1]}</b><small>Approx. ${a[2]}W each</small></label>`).join('');
-function updateCalc() { let total = 0, count = 0; applianceGrid.querySelectorAll('.appliance').forEach(el => { const id = el.dataset.id, qty = Number(el.querySelector('input').value) || 1; if (loads[id]) { total += loads[id] * qty; count += qty; el.classList.add('selected') } else el.classList.remove('selected') }); document.getElementById('calcStatus').textContent = `${count} appliance${count === 1 ? '' : 's'}`; document.getElementById('loadResult').textContent = `${total.toLocaleString()} W`; const inv = total ? `${Math.ceil(total * 1.35 / 500) * 0.5}kVA+` : '—'; const batt = total ? `${Math.max(1, Math.ceil(total * 3 / 1000))}kWh+` : '—'; const panels = total ? `${Math.max(1, Math.ceil(total / 450))} × 450W+` : '—'; document.getElementById('inverterResult').textContent = inv; document.getElementById('batteryResult').textContent = batt; document.getElementById('panelResult').textContent = panels; return { total, count, inv, batt, panels } }
+const applianceGrid = document.getElementById('applianceGrid'); let loads = {}; const watts = Object.fromEntries(appliances.map(a => [a[0], a[2]]));
+applianceGrid.innerHTML = appliances.map(a => `<div class="appliance" data-id="${a[0]}" role="button" tabindex="0"><div class="appliance-top"><i class="fa-solid ${a[3]}"></i><input type="number" min="1" max="10" value="1" aria-label="Quantity of ${a[1]}"></div><b>${a[1]}</b><small>Approx. ${a[2]}W each</small></div>`).join('');
+function updateCalc() { let total = 0, count = 0; applianceGrid.querySelectorAll('.appliance').forEach(el => { const id = el.dataset.id, qty = Math.min(10, Math.max(1, Number(el.querySelector('input').value) || 1)); if (loads[id]) { total += watts[id] * qty; count += qty; el.classList.add('selected') } else el.classList.remove('selected') }); document.getElementById('calcStatus').textContent = `${count} appliance${count === 1 ? '' : 's'}`; document.getElementById('loadResult').textContent = `${total.toLocaleString()} W`; const inv = total ? `${Math.ceil(total * 1.35 / 500) * 0.5}kVA+` : '—'; const batt = total ? `${Math.max(1, Math.ceil(total * 3 / 1000))}kWh+` : '—'; const panels = total ? `${Math.max(1, Math.ceil(total / 450))} × 450W+` : '—'; document.getElementById('inverterResult').textContent = inv; document.getElementById('batteryResult').textContent = batt; document.getElementById('panelResult').textContent = panels; return { total, count, inv, batt, panels } }
 applianceGrid.addEventListener('click', e => { const card = e.target.closest('.appliance'); if (!card) return; if (e.target.tagName === 'INPUT') { loads[card.dataset.id] = Number(card.querySelector('input').value) || 1 } else { if (loads[card.dataset.id]) delete loads[card.dataset.id]; else loads[card.dataset.id] = 1 } updateCalc() });
+applianceGrid.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('appliance')) { e.preventDefault(); e.target.click() } });
 applianceGrid.addEventListener('input', e => { if (e.target.tagName === 'INPUT') { const card = e.target.closest('.appliance'); if (card.classList.contains('selected')) loads[card.dataset.id] = Number(e.target.value) || 1; updateCalc() } });
 document.getElementById('calcQuoteBtn').onclick = () => { const r = updateCalc(); document.getElementById('qService').value = 'Solar / Inverter'; document.getElementById('qMessage').value = `Solar planning estimate: approx. ${r.total}W load. Suggested inverter: ${r.inv}; battery: ${r.batt}; panels: ${r.panels}. Please assess and provide an exact quotation.`; document.getElementById('quote').scrollIntoView({ behavior: 'smooth' }); };
 
@@ -107,3 +110,97 @@ const quoteForm = document.getElementById('quoteForm'); quoteForm.addEventListen
 
 // Track key conversion actions
 ['.floating-whatsapp', '.nav-cta', '.btn-gold'].forEach(sel => document.querySelectorAll(sel).forEach(el => el.addEventListener('click', () => window.gtag && gtag('event', 'cta_click', { event_label: el.textContent.trim().slice(0, 40) }))));
+
+// Google review button
+(() => { const sec = document.getElementById('google-review'), btn = document.getElementById('googleReviewBtn'); if (!GOOGLE_REVIEW_URL || !sec || !btn) return; btn.href = GOOGLE_REVIEW_URL; sec.hidden = false; btn.addEventListener('click', () => window.gtag && gtag('event', 'cta_click', { event_label: 'Google review' })) })();
+
+// Reviews section (display + form checks; saving to a database comes in step 3)
+const REVIEWS_ENABLED = false; // change to true to show the Reviews section
+const reviews = []; // approved reviews only: { name: 'Name', rating: 5, text: 'Review text', date: '2026-11-01' }
+// TEST ONLY: remove the // in front of the next line to preview the layout, then delete it before publishing
+// reviews.push({ name: 'Test Customer', rating: 5, text: 'Sample text to preview how a review looks.', date: '2026-11-01' }, { name: 'Another Test', rating: 4, text: 'A second sample so the average can be checked.', date: '2026-11-02' });
+
+(() => {
+    const sec = document.getElementById('reviews');
+    if (!REVIEWS_ENABLED || !sec) return;
+    sec.hidden = false;
+    const $ = id => document.getElementById(id);
+    const grid = $('reviewGrid'), empty = $('reviewEmpty'), more = $('reviewMore'), summary = $('reviewsSummary');
+    const form = $('reviewForm'), status = $('reviewStatus'), ratingText = $('ratingText');
+    const stars = n => '★'.repeat(n) + '☆'.repeat(5 - n);
+    let shown = 6;
+
+    function card(r) {
+        const el = document.createElement('article'); el.className = 'review-card';
+        const s = document.createElement('div'); s.className = 'review-stars'; s.textContent = stars(r.rating); s.setAttribute('aria-label', `${r.rating} out of 5 stars`);
+        const p = document.createElement('p'); p.textContent = r.text;
+        const f = document.createElement('footer'), n = document.createElement('strong'), d = document.createElement('span');
+        n.textContent = r.name; d.textContent = new Date(r.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        f.append(n, d); el.append(s, p, f); return el;
+    }
+    function render() {
+        const total = reviews.length;
+        summary.hidden = !total; empty.hidden = total > 0;
+        if (total) {
+            const avg = reviews.reduce((sum, r) => sum + r.rating, 0) / total;
+            $('reviewAvg').textContent = avg.toFixed(1);
+            $('reviewAvgStars').textContent = stars(Math.round(avg));
+            $('reviewAvgStars').setAttribute('aria-label', `${avg.toFixed(1)} out of 5 stars`);
+            $('reviewCount').textContent = `${total} website review${total === 1 ? '' : 's'}`;
+        }
+        const sorted = [...reviews].sort((a, b) => new Date(b.date) - new Date(a.date));
+        grid.replaceChildren(...sorted.slice(0, shown).map(card));
+        more.hidden = total <= shown;
+    }
+    more.onclick = () => { shown += 6; render() };
+
+    // Star picker
+    const paint = () => {
+        const v = Number(new FormData(form).get('rating')) || 0;
+        form.querySelectorAll('.star-picker label').forEach((l, i) => l.classList.toggle('on', i < v));
+        ratingText.textContent = v ? `${v} out of 5` : 'Choose a rating';
+    };
+    form.querySelectorAll('input[name="rating"]').forEach(r => r.addEventListener('change', paint));
+    $('rText').addEventListener('input', e => { $('rCount').textContent = `${e.target.value.length} / 1500` });
+
+    // Form checks, then send to the server
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const name = $('rName').value.trim(), text = $('rText').value.trim(), rating = Number(new FormData(form).get('rating'));
+        const err = name.length < 2 || name.length > 60 ? 'Please enter your name (2 to 60 characters).'
+            : !(rating >= 1 && rating <= 5) ? 'Please choose a star rating.'
+                : text.length < 10 || text.length > 1500 ? 'Please write your review (10 to 1,500 characters).' : '';
+        const token = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+        const problem = err || (token ? '' : 'Please complete the security check.');
+        if (problem) { status.className = 'review-status error'; status.textContent = problem; return }
+
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true; status.className = 'review-status'; status.textContent = 'Sending...';
+        try {
+            const res = await fetch('/.netlify/functions/submit-review', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, rating, text, token, website: $('rWebsite').value })
+            });
+            const out = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(out.error || 'Something went wrong. Please try again.');
+            status.className = 'review-status ok';
+            status.textContent = 'Thank you for sharing your experience. Your review has been received and will appear after it is approved.';
+            form.reset(); paint(); $('rCount').textContent = '0 / 1500';
+        } catch (error) {
+            status.className = 'review-status error';
+            status.textContent = error instanceof TypeError ? 'Could not connect. Please check your internet and try again.' : error.message;
+        } finally {
+            btn.disabled = false;
+            if (window.turnstile) turnstile.reset();
+        }
+    });
+
+    // Load approved reviews from the server
+    fetch('/.netlify/functions/get-reviews').then(r => r.ok ? r.json() : []).then(list => { reviews.length = 0; reviews.push(...list); render() }).catch(() => { });
+
+    render();
+})();
+
+// Scroll progress bar
+(() => { const bar = document.getElementById('scrollProgress'); if (!bar) return; const update = () => { const max = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})` }; addEventListener('scroll', update, { passive: true }); addEventListener('resize', update); update() })();
