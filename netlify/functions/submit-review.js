@@ -50,7 +50,7 @@ exports.handler = async (event) => {
     try {
         const since = encodeURIComponent(new Date(Date.now() - 3600 * 1000).toISOString());
         const check = await fetch(`${SUPABASE_URL}/rest/v1/reviews?select=id&ip_hash=eq.${ipHash}&created_at=gte.${since}`, { headers });
-        if (!check.ok) throw new Error('rate check failed');
+        if (!check.ok) throw new Error('rate check failed: ${check.status} ${await check.text()}');
         if ((await check.json()).length >= 3) return reply(429, { error: 'Too many reviews from your connection. Please try again later.' });
 
         // 3. Save as pending (not public until you approve it)
@@ -59,8 +59,9 @@ exports.handler = async (event) => {
             headers: { ...headers, Prefer: 'return=minimal' },
             body: JSON.stringify({ display_name: name, rating, review_text: text, status: 'pending', ip_hash: ipHash })
         });
-        if (!save.ok) throw new Error('save failed');
-    } catch {
+        if (!save.ok) throw new Error('save failed: ${save.status} ${await save.text()}');
+    } catch (err) {
+        console.error('submit-review error:', err.message); //visible only in Netlify's function logs
         return reply(500, { error: 'Could not save your review. Please try again later.' });
     }
     return reply(200, { ok: true });
