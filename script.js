@@ -115,7 +115,7 @@ const quoteForm = document.getElementById('quoteForm'); quoteForm.addEventListen
 (() => { const sec = document.getElementById('google-review'), btn = document.getElementById('googleReviewBtn'); if (!GOOGLE_REVIEW_URL || !sec || !btn) return; btn.href = GOOGLE_REVIEW_URL; sec.hidden = false; btn.addEventListener('click', () => window.gtag && gtag('event', 'cta_click', { event_label: 'Google review' })) })();
 
 // Reviews section (display + form checks; saving to a database comes in step 3)
-const REVIEWS_ENABLED = false; // change to true to show the Reviews section
+const REVIEWS_ENABLED = true; // change to true to show the Reviews section
 const reviews = []; // approved reviews only: { name: 'Name', rating: 5, text: 'Review text', date: '2026-11-01' }
 // TEST ONLY: remove the // in front of the next line to preview the layout, then delete it before publishing
 // reviews.push({ name: 'Test Customer', rating: 5, text: 'Sample text to preview how a review looks.', date: '2026-11-01' }, { name: 'Another Test', rating: 4, text: 'A second sample so the average can be checked.', date: '2026-11-02' });
